@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <script src="https://kit.fontawesome.com/1815c722ee.js" crossorigin="anonymous"></script>
+    <title>About Us</title>
+</head>
+<body>
+    <nav class="about-navbar">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact Us</a>
+    </nav>
+    <div class="about-paragraph">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta recusandae nesciunt odit ut numquam, molestiae similique iste error rerum doloribus rem suscipit. Vero minima id sapiente a, dolorum fuga quasi sint modi repellendus labore ut illo provident eaque praesentium eos velit ad explicabo tempore! Illo porro deserunt cupiditate! Optio minima at odit iste ipsum, reiciendis cum, nostrum non quasi culpa doloremque qui voluptates aut fugit eaque nam quos. Sapiente, sint eos fugiat nihil et vitae voluptas corporis tempore minima repellat vero recusandae in non, fugit quam ipsa, tempora excepturi. Consectetur reiciendis beatae error numquam itaque, reprehenderit ea voluptatum libero pariatur!</p>
+    </div>
+    <div class="about-representation">
+        <div class="happy-customers about-icon">
+            <i class="fas fa-users fa-3x"></i>
+            <span class="counter" data-target="5000"></span>
+            <h2>Happy Customers</h2>
+        </div>
+        <div class="units-sold about-icon">
+            <i class="fas fa-mobile fa-3x"></i>
+            <span class="counter" data-target="10000"></span>
+            <h2>Units Sold</h2>
+        </div>
+        <div class="customer-care about-icon">
+            <i class="fas fa-phone-square-alt fa-3x"></i>
+            <span>24/7</span>
+            <h2>Customer Care</h2>
+        </div>
+    </div>
+    <footer>
+        <div class="icons-container">
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <i class="fab fa-instagram fa-2x"></i>
+            <i class="fab fa-twitter-square fa-2x"></i>
+        </div>
+        <h2>SAXO Phones &copy;2021 All Rights Reserved</h2>
+    </footer>
+    <script>
+        const counters = document.querySelectorAll(".counter")
+        counters.forEach((counter) => {
+            counter.innerHTML = 0
+            
+            const updateCounter = () => {
+                const counterValue = +counter.getAttribute("data-target")
+                // console.log(counterValue)
+                const counterStart = Number(counter.innerHTML)
+                const incrementValue = counterValue/100
+                if (counterStart < counterValue) {
+                    counter.innerHTML = `${counterStart + incrementValue}`
+                    setTimeout(updateCounter, 20)
+                } else {
+                    counter.innerHTML = counterValue
+                }
+            }
+            updateCounter()
+        })
+    </script>
+</body>
+</html>
