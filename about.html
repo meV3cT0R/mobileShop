@@ -19,7 +19,7 @@
         <h2>About Us</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta recusandae nesciunt odit ut numquam, molestiae similique iste error rerum doloribus rem suscipit. Vero minima id sapiente a, dolorum fuga quasi sint modi repellendus labore ut illo provident eaque praesentium eos velit ad explicabo tempore! Illo porro deserunt cupiditate! Optio minima at odit iste ipsum, reiciendis cum, nostrum non quasi culpa doloremque qui voluptates aut fugit eaque nam quos. Sapiente, sint eos fugiat nihil et vitae voluptas corporis tempore minima repellat vero recusandae in non, fugit quam ipsa, tempora excepturi. Consectetur reiciendis beatae error numquam itaque, reprehenderit ea voluptatum libero pariatur!</p>
     </div>
-    <div class="about-representation">
+    <div class="about-representation" id="about-us">
         <div class="happy-customers about-icon">
             <i class="fas fa-users fa-3x"></i>
             <span class="counter" data-target="5000"></span>
@@ -44,25 +44,31 @@
         </div>
         <h2>SAXO Phones &copy;2021 All Rights Reserved</h2>
     </footer>
+</body>
     <script>
         const counters = document.querySelectorAll(".counter")
-        counters.forEach((counter) => {
-            counter.innerHTML = 0
-            
-            const updateCounter = () => {
-                const counterValue = +counter.getAttribute("data-target")
-                // console.log(counterValue)
-                const counterStart = Number(counter.innerHTML)
-                const incrementValue = counterValue/100
-                if (counterStart < counterValue) {
-                    counter.innerHTML = `${counterStart + incrementValue}`
-                    setTimeout(updateCounter, 20)
-                } else {
-                    counter.innerHTML = counterValue
-                }
-            }
-            updateCounter()
+        const aboutUs = document.getElementById("about-us")
+        const observer = new IntersectionObserver(entries => {
+          counters.forEach((counter) => {
+              counter.innerHTML = 0
+              
+              const updateCounter = () => {
+                  const counterValue = +counter.getAttribute("data-target")
+                  // console.log(counterValue)
+                  const counterStart = Number(counter.innerHTML)
+                  const incrementValue = counterValue/100
+                  if (counterStart < counterValue) {
+                      counter.innerHTML = `${counterStart + incrementValue}`
+                      setTimeout(updateCounter, 20)
+                  } else {
+                      counter.innerHTML = counterValue
+                  }
+              }
+              updateCounter()
+          })
+          if (entries.isIntersecting) 
+            observer.unobserve(aboutUs)
         })
+        observer.observe(aboutUs)
     </script>
-</body>
 </html>
