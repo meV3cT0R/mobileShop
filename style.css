@@ -65,7 +65,9 @@ input {
     width: 100%;
 }
 .image-container img{
-    width: 600px;
+    overflow-x: hidden;
+    max-width: 100%;
+    object-fit: cover;
     height: 360px;
     position: absolute;
     top: 50%;
