@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1815c722ee.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="./images/favicon-16x16.png">
+    <link rel="stylesheet" href="style.css">
+
     <title>Contact</title>
 </head>
 <style>
@@ -23,7 +25,9 @@
         justify-content: space-evenly;
         flex-wrap: wrap;
         align-items: flex-start;
-        background-image: linear-gradient( rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3) ), url(./images/samsung-store-scaled.jpg);
+        background-color: #ff4e00;
+        background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+        /* background-image: linear-gradient( rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3) ), url(./images/samsung-store-scaled.jpg); */
         background-size: center;
         background-position: top;
         overflow-x: hidden;
@@ -68,23 +72,28 @@
         justify-content: center;
     }
     input {
+        color: white;
+        background-color: transparent;
         width: 80%;
         font-size: 1rem;
         padding: 10px;
         margin-top: 10px;
-        border-radius: 10px;
         border: none;
         outline: none;
         font-family: inherit;
-        caret-color: orange;
+        caret-color: rgb(255, 255, 255);
+        border-bottom: 4px solid rgb(255, 255, 255);
         transition: 0.3s ease-in-out;
+    }
+
+    input::placeholder {
+        color: white;
     }
     input:focus{
         width: 130%;
         background: none;
         border-radius: 0;
         color: white;
-        border-bottom: 4px solid orange;
     }
     input:focus::placeholder {
         color: white;
@@ -151,10 +160,11 @@
         margin-right: 10px;
     }
     .contact-info p {
+        font-size: 1.2rem;
         margin-top: 12px;
     }
     .contact-info .fas:hover {
-        color: orange;
+        color: rgb(0, 0, 0);
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
@@ -174,11 +184,25 @@
     }
 </style>
 <body>
-    <nav class="about-navbar">
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./contact.html">Contact Us</a>
+    <nav class="nav-wrapper">
+        <input type="checkbox" id="check-box">
+        <div class="hamburger-menu">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </div>
+        <div class="center-icons">           
+            <a href="./index.html" class="nav-icons"><i class="fas fa-home fa-2x"></i></a>
+            <a href="./about.html" class="nav-icons"><i class="fas fa-info-circle fa-2x"></i></a>
+            <a href = "./contact.html" class="nav-icons"><i class="fas fa-address-book fa-2x"></i></a>
+        </div>
     </nav>
+    <div class="ham-menu-items" id="secondary-menu">
+        <ul class="name-list">
+            <li><a href="#latest-phones">Latest Phones</a></li>
+            <li><a href="#gaming-phones">Gaming Phones</a></li>
+        </ul>
+    </div>
     <div class="contact-info">
         <h2 align = "center">Contact Us:</h2>
         <div class="ph-number">
@@ -211,6 +235,7 @@
         <div id="status"></div>
     </form>
 </body>
+<script src="index.js"></script>
 <script>
     var form = document.getElementById("my-form");
     

@@ -37,7 +37,7 @@ body {
 .center-icons > .nav-icons:first-child  > .fas {
     margin-left: 0px;
 }
-input {
+input[type = "checkbox"] {
     height: 24px;
     width: 32px;
     margin-left: 15px;

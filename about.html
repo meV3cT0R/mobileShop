@@ -11,11 +11,25 @@
     <title>About Us</title>
 </head>
 <body>
-    <nav class="about-navbar">
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./contact.html">Contact Us</a>
+    <nav class="nav-wrapper">
+        <input type="checkbox" id="check-box">
+        <div class="hamburger-menu">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </div>
+        <div class="center-icons">           
+            <a href="./index.html" class="nav-icons"><i class="fas fa-home fa-2x"></i></a>
+            <a href="./about.html" class="nav-icons"><i class="fas fa-info-circle fa-2x"></i></a>
+            <a href = "./contact.html" class="nav-icons"><i class="fas fa-address-book fa-2x"></i></a>
+        </div>
     </nav>
+    <div class="ham-menu-items" id="secondary-menu">
+        <ul class="name-list">
+            <li><a href="#latest-phones">Latest Phones</a></li>
+            <li><a href="#gaming-phones">Gaming Phones</a></li>
+        </ul>
+    </div>
     <div class="about-paragraph">
         <h2>About Us</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta recusandae nesciunt odit ut numquam, molestiae similique iste error rerum doloribus rem suscipit. Vero minima id sapiente a, dolorum fuga quasi sint modi repellendus labore ut illo provident eaque praesentium eos velit ad explicabo tempore! Illo porro deserunt cupiditate! Optio minima at odit iste ipsum, reiciendis cum, nostrum non quasi culpa doloremque qui voluptates aut fugit eaque nam quos. Sapiente, sint eos fugiat nihil et vitae voluptas corporis tempore minima repellat vero recusandae in non, fugit quam ipsa, tempora excepturi. Consectetur reiciendis beatae error numquam itaque, reprehenderit ea voluptatum libero pariatur!</p>
@@ -46,6 +60,7 @@
         <h2>SAXO Phones &copy;2021 All Rights Reserved</h2>
     </footer>
 </body>
+<script src="index.js"></script>
     <script>
         const counters = document.querySelectorAll(".counter")
         const aboutUs = document.getElementById("about-us")
