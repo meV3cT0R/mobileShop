@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1815c722ee.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../../images/favicon-16x16.png">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <title>Contact</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500;600&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+    body {
+        display: flex;
+        width: 100vw;
+        min-height: 100vh;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        background-color: #ff4e00;
+        background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+        /* background-image: linear-gradient( rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3) ), url(./images/samsung-store-scaled.jpg); */
+        background-size: center;
+        background-position: top;
+        overflow-x: hidden;
+    }
+    .about-navbar {
+        width: 100%;
+        height: 24px;
+        align-self: flex-start;
+        margin: 2rem auto;
+        display: flex;
+        justify-content: space-around;
+        color: whitesmoke;
+        font-size: 1.4rem;
+    }
+    .about-navbar a {
+        color: inherit;
+        text-decoration: none;
+
+    }
+    form, .contact-info {
+        font-family: 'Josefin Sans', sans-serif;
+        margin-top: 2rem;
+        background: rgba(255, 255, 255, 0.2);
+        height: 420px;
+        min-width: 30%;
+        max-width: 80vw;
+        padding: 16px 24px;
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        display: flex;
+        color: white;
+        font-size: 1.2rem;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    .sub-form {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    input {
+        color: white;
+        background-color: transparent;
+        width: 80%;
+        font-size: 1rem;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        caret-color: rgb(255, 255, 255);
+        border-bottom: 4px solid rgb(255, 255, 255);
+        transition: 0.3s ease-in-out;
+    }
+
+    input::placeholder {
+        color: white;
+    }
+    input:focus{
+        width: 130%;
+        background: none;
+        border-radius: 0;
+        color: white;
+    }
+    input:focus::placeholder {
+        color: white;
+    }
+    textarea {
+        margin-top: 10px;
+        background: none;
+        color: white;
+        font-size: 1.2rem;
+        outline: none;
+        border: none;
+    }
+    textarea::placeholder {
+        color: white;
+        font-family: inherit;
+    }
+    button {
+        padding: 6px 40px;
+        align-self: center;
+        margin-left: -20px;
+        border: 1px solid orange;
+        border-radius: 10px;
+        background: transparent;
+        color: white;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        bottom: 10px;
+    }
+    button:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+    #status {
+        font-size: 1.3rem;
+        margin-top: 16px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 8px 30px;
+        border-radius: 8px;
+        position: absolute;
+        bottom: -40px;
+        align-self: center;
+    }
+    #status.success {
+        background: rgb(21, 136, 21);
+        color: rgb(255, 217, 0);
+        animation: status 4s ease forwards;
+    }
+    #status.error {
+        background: red;
+        color: white;
+        animation: status 4s ease forwards;
+    }
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .contact-info span {
+        margin-right: 10px;
+    }
+    .contact-info p {
+        font-size: 1.2rem;
+        margin-top: 12px;
+    }
+    .contact-info .fas:hover {
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    @keyframes status {
+        0% {
+            opacity: 1;
+            pointer-events: all;
+        }
+        90% {
+            opacity: 1;
+            pointer-events: all;
+        }
+        100% {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+</style>
+<body>
+    <nav class="nav-wrapper">
+        <input type="checkbox" id="check-box">
+        <div class="hamburger-menu">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </div>
+        <div class="center-icons">           
+            <a href="./index.html" class="nav-icons"><i class="fas fa-home fa-2x"></i></a>
+            <a th:href="@{/about}" class="nav-icons"><i class="fas fa-info-circle fa-2x"></i></a>
+            <a th:href = "@{/contact}" class="nav-icons"><i class="fas fa-address-book fa-2x"></i></a>
+        </div>
+    </nav>
+    <div class="ham-menu-items" id="secondary-menu">
+        <ul class="name-list">
+            <li><a href="#latest-phones">Latest Phones</a></li>
+            <li><a href="#gaming-phones">Gaming Phones</a></li>
+        </ul>
+    </div>
+    <div class="contact-info">
+        <h2 align = "center">Contact Us:</h2>
+        <div class="ph-number">
+            <span>Phone:</span><i class="fas fa-phone-alt"></i>
+            <p>9869696969</p>
+        </div>
+        <div class="email-address">
+            <span>Email:</span><i class="fas fa-envelope "></i>
+            <p>saxophones01@gmail.com</p>
+        </div>
+        <div class="delivery-van">
+            <span>Delivery:</span><i class="fas fa-truck"></i>
+            <p>01-452341</p>
+        </div>
+    </div>
+    <form th:action= "@{/contact/messageSubmit}" method="POST" id="my-form">
+        <div class="name-container sub-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="fullName" placeholder="Enter your name">
+        </div>
+        <div class="email-container sub-form">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="message-container sub-form">
+            <label for="message">Message</label>
+            <textarea name="messageData" id="message" cols="30" rows="10" placeholder="Enter your message here"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+        <div id="status"></div>
+    </form>
+</body>
+<script src="../../js/index.js"></script>
+
+<script>
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.classList.add("success")
+        status.innerHTML = "Thank you!";
+        form.reset()
+      }).catch(error => {
+          status.classList.add("error")
+        status.innerHTML = "Oops!"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
+
+</html>
