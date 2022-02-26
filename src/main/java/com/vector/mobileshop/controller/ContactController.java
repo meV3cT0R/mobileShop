@@ -2,6 +2,7 @@ package com.vector.mobileshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,9 +17,9 @@ public class ContactController {
 	MessageRepository messageRepository;
 	
 	@RequestMapping(value="/messageSubmit",method=RequestMethod.POST)
-	public String submitForm(@ModelAttribute Message message) {
+	public String submitForm(@ModelAttribute Message message,Model model) {
 		messageRepository.save(message);
 		
-		return new MobileShop().getIndexPage();
+		return new MobileShop().getIndexPage(model);
 	}
 }
