@@ -1,4 +1,4 @@
-package com.vector.mobileshop.utils;
+package com.vector.mobileshop;
 
 import java.io.*;
 import java.nio.file.*;

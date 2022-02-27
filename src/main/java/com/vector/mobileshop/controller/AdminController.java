@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.vector.mobileshop.FileUploadUtil;
 import com.vector.mobileshop.model.Admin;
 import com.vector.mobileshop.model.Message;
 import com.vector.mobileshop.model.Product;
 import com.vector.mobileshop.repository.MessageRepository;
 import com.vector.mobileshop.repository.ProductRepository;
-import com.vector.mobileshop.utils.FileUploadUtil;
 
 import java.io.IOException;
 import java.util.List;
